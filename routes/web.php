@@ -10,9 +10,19 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/','FrontendController@main')->
+name('main');
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
+
+
+
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 Route::get('dashboard', 'BackendController@dashboard');
+
+Route::resource('services','ServiceController');
+
+Route::resource('roomtypes','RoomtypeController');
