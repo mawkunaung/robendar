@@ -4,8 +4,9 @@
 @section('content')
 <div class="container-fluid">
 	<div class="row">
-		<form action="{{route('services.store')}}" method="post" class="col-8 bg-dark text-white" enctype="multipart/form-data"> <!-- store with Route -->
-			<h2>Service Create Form</h2>
+		<form action="{{route('services.store')}}" method="post" class="col-8" enctype="multipart/form-data"> <!-- store with Route -->
+			<h2 class="d-inline">Service Create Form</h2>
+			<a href="{{route('services.index')}}" class="btn btn-info float-right">Back to table</a>
 			@csrf<!--  for from save -->
 			<div class="form-group">
 				<label for="name">Name</label>

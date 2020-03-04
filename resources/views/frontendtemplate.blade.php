@@ -17,18 +17,18 @@
 	<!--navbar -->
 	<nav class="navbar navbar-expand-lg navbar-light fixed-top" id="hotel-navbar">
 		<div class="container">
-			<a class="navbar-brand" href="index.html">ROBANDER</a>
+			<a class="navbar-brand" href="index.html">ROBENDAR</a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
 			</button>
 
 			<div class="collapse navbar-collapse" id="navbarNav">
 				<ul class="navbar-nav ml-auto my-2">
-					<li class="nav-item px-4"><a href="index.html" class="nav-link">Home</a></li>
-					<li class="nav-item px-4"><a href="service.html" class="nav-link">Service</a></li>
-					<li class="nav-item px-4"><a href="about.html" class="nav-link">About</a></li>
-					<li class="nav-item px-4"><a href="contact.html" class="nav-link">Contact</a></li>
-					<li class="nav-item px-4 btn btn-success"><a href="#" class="nav-link text-light">Booking</a></li>
+					<li class="nav-item px-4"><a href="{{route('main')}}" class="nav-link">Home</a></li>
+					<li class="nav-item px-4"><a href="#" class="nav-link">Service</a></li>
+					<li class="nav-item px-4"><a href="{{route('about')}}" class="nav-link">About</a></li>
+					<li class="nav-item px-4"><a href="{{route('contact')}}" class="nav-link">Contact</a></li>
+					<li class="nav-item px-4 btn btn-success"><a href="{{route('booking')}}" class="nav-link text-light">Booking</a></li>
 				</ul>
 			</div>
 		</div>
@@ -47,21 +47,21 @@
 				<img src="{{asset('business/images/bg_1.jpg')}}" class="d-block w-100" alt="...">
 				<div class="carousel-caption d-none d-md-block">
 					<h1>More Than Hotel...</h1>
-					<p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+					<p>The Best Performance Hotel</p>
 				</div>
 			</div>
 			<div class="carousel-item">
 				<img src="{{asset('business/images/bg_2.jpg')}}" class="d-block w-100" alt="...">
 				<div class="carousel-caption d-none d-md-block">
-					<h1>Second slide label</h1>
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+					<h1>More Than Hotel...</h1>
+					<p>The Best Performance Hotel</p>
 				</div>
 			</div>
 			<div class="carousel-item">
 				<img src="{{asset('business/images/bg_3.jpg')}}" class="d-block w-100" alt="...">
 				<div class="carousel-caption d-none d-md-block">
-					<h1>Third slide label</h1>
-					<p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+					<h1>More Than Hotel...</h1>
+					<p>The Most Popular Hotel</p>
 				</div>
 			</div>
 		</div>

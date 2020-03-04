@@ -38,7 +38,18 @@ nav.scrolled{
   padding-right: 35em;
 }
  .home_carousel .carousel-item .carousel-caption h1{
-  font-size: 4rem;
+  font-size: 3.5rem;
+  background: linear-gradient(to bottom,
+    rgba(33,118,108,0.2)0, 
+    rgba(33,118,108,0.2)100%);
+  font-family: sans-serif;
+}
+.home_carousel .carousel-item .carousel-caption p{
+  font-size: 1.5rem;
+  background: linear-gradient(to bottom,
+    rgba(33,118,108,0.2)0, 
+    rgba(33,118,108,0.2)100%);
+  font-family: sans-serif;
 }
 #book{
   background-color: #eeeeee;
@@ -111,6 +122,9 @@ nav.scrolled{
   font-family: sans-serif;
   color: #b69100;
   width: 60%;
+}
+#roomtypes_show p{
+  text-align: center;
 }
 /*#roomtypes_show .card{
   -webkit-backface-visibility: hidden;

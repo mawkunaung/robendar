@@ -19,6 +19,26 @@
 				</span>
 				@enderror
 			</div>
+
+			<div class="form-group">
+				<label for="price">Price</label>
+				<input type="number" class="form-control @error('price') is-invalid @enderror" id="price" aria-describedby="priceHelp" name="price" value="{{$roomtype->price}}{{ isset($user) ? $user->price : '' }}">
+				@error('price')
+				<span class="invalid-feedback" role="alert">
+					<strong>{{ $message }}</strong>
+				</span>
+				@enderror
+			</div>
+
+			<div class="form-group">
+				<label class="col-form-table">Select Services</label>
+				<select name="services[]" class="form-control js-example-basic-multiple" multiple="">
+					@foreach($services as $row)
+					<option value="{{$row->id}}"  @foreach($roomtype->services as $roomtype_service) <?php if($roomtype_service->id==$row->id) { ?> selected <?php }; ?>  @endforeach>{{$row->name}}</option>
+					@endforeach
+				</select>
+			</div>
+
 			<ul class="nav nav-tabs">
 				<li class="nav-item">
 					<a class="nav-link active" href="#old" data-toggle="tab">Old</a>

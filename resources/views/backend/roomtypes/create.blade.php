@@ -2,15 +2,34 @@
 @extends('backendtemplate')
 
 @section('content')
-<div class="container-fluid">
+<div class="container">
 	<div class="row">
-		<form action="{{route('roomtypes.store')}}" method="post" class="col-8 bg-dark text-white" enctype="multipart/form-data"> <!-- store with Route -->
-			<h2>Roomtype Create Form</h2>
+		<div class="col-12">
+			<form action="{{route('roomtypes.store')}}" method="post" class="col-8" enctype="multipart/form-data"> <!-- store with Route -->
+			<h2 class="d-inline">Roomtype Create Form</h2>
+			<a href="{{route('roomtypes.index')}}" class="btn btn-info float-right">Back to table</a>
 			@csrf<!--  for from save -->
 			<div class="form-group">
 				<label for="name">Name</label>
 				<input type="text" class="form-control @error('name') is-invalid @enderror" id="name" aria-describedby="nameHelp" name="name" value="{{ isset($user) ? $user->name : '' }}">
 				@error('name')
+				<span class="invalid-feedback" role="alert">
+					<strong>{{ $message }}</strong>
+				</span>
+				@enderror
+			</div>
+			<div class="form-group">
+				<label class="col-form-table">Select Services</label>
+				<select name="services[]" class="form-control js-example-basic-multiple" id="batch" multiple="">
+					@foreach($services as $row)
+					<option value="{{$row->id}}">{{$row->name}}</option>
+					@endforeach
+				</select>
+			</div>
+			<div class="form-group">
+				<label for="price">Price</label>
+				<input type="number" class="form-control @error('price') is-invalid @enderror" id="price" aria-describedby="priceHelp" name="price" value="{{ isset($user) ? $user->price : '' }}" placeholder="MMK">
+				@error('price')
 				<span class="invalid-feedback" role="alert">
 					<strong>{{ $message }}</strong>
 				</span>
@@ -33,6 +52,7 @@
 			</div>
 			<button type="submit" class="btn btn-primary mb-3">Save</button>
 		</form>
+		</div>
 	</div>
 </div>
 

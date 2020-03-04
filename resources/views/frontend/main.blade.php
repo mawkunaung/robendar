@@ -50,11 +50,6 @@
 
 
 
-
-
-
-
-
 	<!-- room types -->
 
 	<div class="container-fluid" id="roomtypes_show">
@@ -74,7 +69,7 @@
 						@endphp
 						@foreach($photo as $r_photo)
 						<div class="carousel-item @if($i==0) {{'active'}} @endif" data-interval="10000">
-							<img src="{{$r_photo}}" class="d-block w-100" alt="...">
+							<img src="{{$r_photo}}" class="d-block w-100" style="height: 20rem;">
 						</div>
 						@php $i++; @endphp
 						@endforeach
@@ -110,16 +105,6 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
 	<!-- recommend -->
 	<div id="counter">
 		<div class="container p-5">
@@ -127,32 +112,20 @@
 				<div class="carousel-inner">
 					<div class="carousel-item active">
 						<div class="carousel-caption">
-							<h3>Roney CR</h3>
-							<p>TEXT</p>
+							<h3>We Are</h3>
+							<p>The Customers Satistied Hotel</p>
 						</div>
 					</div>
 					<div class="carousel-item">
 						<div class="carousel-caption">
-							<h3>Diane L</h3>
-							<p>TEXT</p>
+							<h3>We Are</h3>
+							<p>The Best Performance Hotel</p>
 						</div>
 					</div>
 					<div class="carousel-item">
 						<div class="carousel-caption">
-							<h3>Randall L</h3>
-							<p>TEXT</p>
-						</div>
-					</div>
-					<div class="carousel-item">
-						<div class="carousel-caption">
-							<h3>John D.</h3>
-							<p>TEXT</p>
-						</div>
-					</div>
-					<div class="carousel-item">
-						<div class="carousel-caption">
-							<h3>Jody B.</h3>
-							<p>TEXT</p>
+							<h3>We Are</h3>
+							<p>The Most Popular Hotel</p>
 						</div>
 					</div>
 				</div>
@@ -182,7 +155,7 @@
 						<span class="col-6">Jonsan M.Well</span>
 					</div>
 					<div class="card-title offset-1 col-10 offset-1">
-						<p class="text-justify">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmodtempor incididunt ut labore et dolore magna aliqua.</p>
+						<p class="text-justify">We had a 3 night stay to enjoy the Prague Christmas Markets, and were very satisfied with every aspect of the hotel.</p>
 					</div>
 				</div>
 			</div>
@@ -193,7 +166,7 @@
 						<span class="col-6">Tigeral T.Grate</span>
 					</div>
 					<div class="card-title offset-1 col-10 offset-1">
-						<p class="text-justify">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmodtempor incididunt ut labore et dolore magna aliqua.</p>
+						<p class="text-justify">Excellent stay, except WIFI is a bit slow in our room, probably due to its position. Otherwise, a good hotel, with good position</p>
 					</div>
 				</div>
 			</div>
@@ -204,7 +177,7 @@
 						<span class="col-6">Franco T.Hooks</span>
 					</div>
 					<div class="card-title offset-1 col-10 offset-1">
-						<p class="text-justify">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmodtempor incididunt ut labore et dolore magna aliqua.</p>
+						<p class="text-justify">Lovely hotel. Very comfortable. 10 minute walk to the old town. Breakfast was really good. Would definitely stay again</p>
 					</div>
 				</div>
 			</div>

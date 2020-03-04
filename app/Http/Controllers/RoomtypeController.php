@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Roomtype;
+use App\Service;
 
 class RoomtypeController extends Controller
 {
@@ -14,8 +15,9 @@ class RoomtypeController extends Controller
      */
     public function index()
     {
+        $services = Service::all();
         $roomtypes = Roomtype::all();
-        return view('backend.roomtypes.index',compact('roomtypes'));
+        return view('backend.roomtypes.index',compact('roomtypes','services'));
     }
 
     /**
@@ -25,7 +27,8 @@ class RoomtypeController extends Controller
      */
     public function create()
     {
-        return view('backend.roomtypes.create');
+        $services = Service::all();
+        return view('backend.roomtypes.create',compact('services'));
     }
 
     /**
@@ -41,6 +44,7 @@ class RoomtypeController extends Controller
         //Validation 
         $request->validate([
             "name" => "required|min:3|max:191",
+            "price" => "required",
             "photo" => "required",
             'photo.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048'
         ]);
@@ -61,9 +65,13 @@ class RoomtypeController extends Controller
         //Storage to Database
         $roomtype = new Roomtype;
         $roomtype->name = request('name');
+        $roomtype->price = request('price');
         $roomtype->photo=json_encode($data);
 
         $roomtype->save();
+        //pivot for roomservices
+        $roomtype->services()->attach(request('services'));
+
         return redirect()->route('roomtypes.index');
     }
 
@@ -75,7 +83,8 @@ class RoomtypeController extends Controller
      */
     public function show($id)
     {
-        $roomtype = Roomtype::find($id);
+        $roomtype = Roomtype::where('id',$id)->with('services')->get();
+        // dd($roomtype);
         return $roomtype;
     }
 
@@ -87,8 +96,9 @@ class RoomtypeController extends Controller
      */
     public function edit($id)
     {
+        $services = Service::all();
         $roomtype = Roomtype::find($id);
-        return view('backend.roomtypes.edit',compact('roomtype'));
+        return view('backend.roomtypes.edit',compact('roomtype','services'));
     }
 
     /**
@@ -128,9 +138,16 @@ class RoomtypeController extends Controller
         //Storage to Database
         $roomtype = Roomtype::find($id);
         $roomtype->name = request('name');
+        $roomtype->price = request('price');
         $roomtype->photo = $data;
 
         $roomtype->save();
+
+        $roomtype->services()->detach();
+        $roomtype->services()->attach(request('services'));
+
+
+
         return redirect()->route('roomtypes.index');
     }
 

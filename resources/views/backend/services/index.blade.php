@@ -6,12 +6,11 @@
 	<a href="{{route('services.create')}}" class="btn btn-info float-right">Add New</a>
 
 	<div class="row">
-		<table class="table table-dark" border="2px solid white">
+		<table class="table table-bordered text-center">
 			<thead>
 				<tr>
 					<th scope="col">No</th>
 					<th scope="col">Name</th>
-					<!-- <th scope="col">Logo</th> -->
 					<th scope="col">Action</th>
 
 				</tr>
