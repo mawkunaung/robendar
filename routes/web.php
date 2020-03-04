@@ -16,3 +16,8 @@ Route::get('/', function () {
 });
 
 Route::get('dashboard', 'BackendController@dashboard');
+
+Route::resource('rooms','RoomController');
+Route::resource('users','UserController');
+Route::resource('bookings','BookingController');
+Route::resource('checkins','CheckinController');
