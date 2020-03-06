@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Roomtype;
+use App\User;
+use App\Service;
 
 class FrontendController extends Controller
 {
@@ -22,6 +24,14 @@ class FrontendController extends Controller
     }
     public function booking($value='')
     {
-        return view('frontend.booking');
+        $users = User::all();
+        $roomtypes = Roomtype::all();
+        return view('frontend.booking',compact('users','roomtypes'));
+    }
+    public function roomtype_detail($id)
+    {
+        $services = Service::all();
+        $roomtype = Roomtype::find($id);
+        return view('frontend.roomtype',compact('roomtype','services'));
     }
 }

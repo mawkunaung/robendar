@@ -16,18 +16,19 @@ class CreateBookingsTable extends Migration
         Schema::create('bookings', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('user_id');
-            $table->unsignedBigInteger('room_id');
+            $table->unsignedBigInteger('roomtype_id');
             $table->date('checkin_date');
             $table->date('checkout_date');
             $table->string('message');
+            $table->boolean('status')->default(false);
             $table->timestamps();
 
             $table->foreign('user_id')
                 ->references('id')->on('users')
                 ->onDelete('cascade');
 
-            $table->foreign('room_id')
-                ->references('id')->on('rooms')
+            $table->foreign('roomtype_id')
+                ->references('id')->on('roomtypes')
                 ->onDelete('cascade');
         });
     }

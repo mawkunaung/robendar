@@ -11,6 +11,10 @@ class Roomtype extends Model
     public function services($value='')
     {
     	return $this->belongsToMany('App\Service','roomtype_services')->withTimestamps();
+    }//pivou table rs
+    public function bookings($value='')
+    {
+        return $this->belongsToMany('App\Booking');
     }
 
     

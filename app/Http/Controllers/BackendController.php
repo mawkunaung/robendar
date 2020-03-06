@@ -3,11 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Room;
 
 class BackendController extends Controller
 {
     public function dashboard($value='')
     {
-    	return view('backendtemplate');
+    	$rooms = Room::all();
+    	return view('backend.dashboard',compact('rooms'));
     }
 }

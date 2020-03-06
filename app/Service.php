@@ -11,8 +11,12 @@ class Service extends Model
     {
     	return $this->belongsToMany('App\Roomtype')->withTimestamps();
     }
-    public function roomtype($value='')//Relationship to CourseTable
+    public function roomtype($value='')
     {
     	return $this->belongsTo('App\Roomtype');
     }
+    // public function bookings($value='')
+    // {
+    // 	return $this->belongsToMany('App\Booking')->withTimestamps();
+    // }
 }

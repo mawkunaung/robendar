@@ -51,7 +51,6 @@
 
 
 	<!-- room types -->
-
 	<div class="container-fluid" id="roomtypes_show">
 		<div class="row">
 			<div class="col-12 text-center">
@@ -85,7 +84,7 @@
 					</a>
 					<div class="card-body">
 						<h4>{{$roomtype->name}}</h4>
-						<p class="card-text">34000MMK</p>
+						<a href="{{route('roomtype_detail',$roomtype->id)}}" class="button" type="button"><h3>View Details</h3></a>
 					</div>
 				</div>
 			</div>
@@ -94,6 +93,7 @@
 		</div>
 	</div>
 	<!-- end roomtypes -->
+
 
 
 

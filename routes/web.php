@@ -18,6 +18,8 @@ Route::get('contact','FrontendController@contact')->name('contact');
 
 Route::get('booking','FrontendController@booking')->name('booking');
 
+Route::get('roomtype_detail/{id}','FrontendController@roomtype_detail')->name('roomtype_detail');
+
 
 
 
@@ -38,6 +40,13 @@ Route::resource('rooms','RoomController');
 Route::resource('users','UserController');
 Route::resource('bookings','BookingController');
 Route::resource('checkins','CheckinController');
+
+
+Route::get('confirm/{id}','BookingController@confirm')->name('confirm');
+
+Route::get('checkout/{id}','CheckinController@checkout')->name('checkout');
+
+Route::get('dashboard','BackendController@dashboard')->name('dashboard');
 
 
 Auth::routes();
