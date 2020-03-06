@@ -17,6 +17,8 @@ Route::get('about','FrontendController@about')->name('about');
 Route::get('contact','FrontendController@contact')->name('contact');
 
 Route::get('booking','FrontendController@booking')->name('booking');
+Route::get('logins','FrontendController@login')->name('logins');
+Route::get('registers','FrontendController@register')->name('registers');
 
 Route::get('roomtype_detail/{id}','FrontendController@roomtype_detail')->name('roomtype_detail');
 
@@ -28,8 +30,11 @@ Route::get('roomtype_detail/{id}','FrontendController@roomtype_detail')->name('r
 // Route::get('/', function () {
 //     return view('welcome');
 // });
+Route::group([
+	'middleware'=>['role:Admin']
+],function(){
 
-Route::get('dashboard', 'BackendController@dashboard');
+Route::get('dashboard', 'BackendController@dashboard')->name('dashboard');
 
 
 Route::resource('services','ServiceController');
@@ -41,6 +46,7 @@ Route::resource('users','UserController');
 Route::resource('bookings','BookingController');
 Route::resource('checkins','CheckinController');
 
+})	;
 
 Route::get('confirm/{id}','BookingController@confirm')->name('confirm');
 

@@ -26,7 +26,33 @@
 					<li class="nav-item px-4"><a href="#" class="nav-link">Service</a></li>
 					<li class="nav-item px-4"><a href="{{route('about')}}" class="nav-link">About</a></li>
 					<li class="nav-item px-4"><a href="{{route('contact')}}" class="nav-link">Contact</a></li>
+
+					
+					@if(Auth::user())
+					<li class="nav-item dropdown btn btn-success">
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    {{ Auth::user()->name }} <span class="caret"></span>
+                                </a>
+
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                        {{ __('Logout') }}
+                                    </a>
+
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                        @csrf
+                                    </form>
+                                </div>
+                            </li>
+
 					<li class="nav-item px-4 btn btn-success"><a href="{{route('booking')}}" class="nav-link text-light">Booking</a></li>
+
+					@else
+					<li class="nav-item px-4 btn btn-success mx-1"><a href="{{route('registers')}}" class="nav-link text-light">Register</a></li>
+					<li class="nav-item px-4 btn btn-success mx-2"><a href="{{route('logins')}}" class="nav-link text-light" >Login</a></li>
+					@endif
 				</ul>
 			</div>
 		</div>

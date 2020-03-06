@@ -13,3 +13,4 @@ class BackendController extends Controller
     	return view('backend.dashboard',compact('rooms'));
     }
 }
+    

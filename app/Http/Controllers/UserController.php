@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use Illuminate\Support\Facades\URL;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -49,21 +51,34 @@ class UserController extends Controller
             "nrc"=>"required",
         ]);
 
-        // $nrc = reuest('nrc');
-        // if(preg_match("/^[1-9]{1,2}\/(([A-z]|[a-z]){1}([A-Z]|[a-z]){0,2}){3}\b((\Na\))"))
+        $nrc = request('nrc');
+        //dd($nrc);
+        if(preg_match("/^[1-9]{1,2}\/(([A-Z]|[a-z]){1}([A-Z]|[a-z]){0,2}){3}\b((\(Na\))|(\(Naing\)))[0-9]{6}$/", $nrc)) {
 
         $user=new User();
         $user->name=request('name');
         $user->email=request('email');
-        $user->password=request('password');
+        $user->password=Hash::make(request('password'));
         $user->phone=request('phone');
         $user->address=request('address');
         $user->nrc_no=request('nrc');
 
         $user->save();
-
+        $user->assignRole('Customer');
         //return redirect
-        return redirect()->route('users.index');
+        //return redirect()->route('users.index');
+
+        // if(app('router')->getRoutes()->match(app('request')->create(URL::previous()))->getName()=='users.create'){
+        //     return redirect()->routes('users.index');
+        // }else{
+        //     //return back with noti msg
+        //     return back()->with('status','Register successfully!');
+        // }
+        return back();
+        }else{
+            // return redirect()->back()->withErrors('nrc format is incorrect');
+            return back()->with('status','successfully!');
+        }
     }
 
     /**
@@ -109,10 +124,12 @@ class UserController extends Controller
             "phone"=>"required",
             "address"=>"required|min:3|max:191",
             "nrc"=>"required",
-            
-            
-
         ]);
+
+        $nrc = request('nrc');
+        //dd($nrc);
+        if(preg_match("/^[1-9]{1,2}\/(([A-Z]|[a-z]){1}([A-Z]|[a-z]){0,2}){3}\b((\(Na\))|(\(Naing\)))[0-9]{6}$/", $nrc)) {    
+
         $user=User::find($id);
         $user->name=request('name');
         $user->email=request('email');
@@ -125,6 +142,10 @@ class UserController extends Controller
 
         //return redirect
         return redirect()->route('users.index');
+        }else{
+            // return redirect()->back()->withErrors('nrc format is incorrect');
+            return back()->with('status','successfully!');
+        }
     }
 
     /**

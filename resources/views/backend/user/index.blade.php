@@ -14,7 +14,7 @@
                                         <th>No</th>
                                         <th>Name</th>
                                          <th>Email</th>
-                                         <th>Password</th>
+                                         
                                          <th>Phone</th>
                                          <th>Address</th>
                                          <th>NRC</th>
@@ -29,10 +29,10 @@
                                             <td>{{$i++}}</td>
                                             <td>{{$row->name}}</td>
                                             <td>{{$row->email}}</td>
-                                            <td>{{$row->password}}</td>
+                                            
                                             <td>{{$row->phone}}</td>
                                             <td>{{$row->address}}</td>
-                                            <td>{{$row->nrc}}</td>
+                                            <td>{{$row->nrc_no}}</td>
                                             
                                             <td>
                                                 <a href="#" class="btn btn-info detail" data-id="{{$row->id}}"><i class="fas fa-info-circle"></i></a>

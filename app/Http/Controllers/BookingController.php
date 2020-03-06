@@ -43,6 +43,7 @@ class BookingController extends Controller
      */
     public function store(Request $request)
     {
+<<<<<<< HEAD
         //dd($request);
 
         $request->validate([
@@ -70,6 +71,13 @@ class BookingController extends Controller
             //retrun back with noti message
             return back()->with('status','Booking successfully!');
         }
+||||||| merged common ancestors
+        //
+=======
+        //
+        // $booking =new Booking;
+        // $booking->user_id=1;
+>>>>>>> 84328a5b9ae12e5bf4f0e2f7271c6ff366bcacf4
     }
 
     /**

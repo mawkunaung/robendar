@@ -34,4 +34,12 @@ class FrontendController extends Controller
         $roomtype = Roomtype::find($id);
         return view('frontend.roomtype',compact('roomtype','services'));
     }
+    public function login($value='')
+    {
+        return view('frontend.login');
+    }
+    public function register($value='')
+    {
+        return view('frontend.register');
+    }
 }

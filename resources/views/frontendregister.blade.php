@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Contact</title>
+	<title>Register</title>
 	<link rel="stylesheet" type="text/css" href="{{asset('another/css/bootstrap.min.css')}}">
 	<!-- JQ -->
 	<script type="text/javascript" src="{{asset('another/js/jquery.min.js')}}"></script>
@@ -27,7 +27,7 @@
 					<li class="nav-item px-4"><a href="{{route('about')}}" class="nav-link">About</a></li>
 					<li class="nav-item px-4"><a href="{{route('contact')}}" class="nav-link">Contact</a></li>
 
-					
+
 					@if(Auth::user())
 					<li class="nav-item dropdown btn btn-success">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
@@ -53,16 +53,17 @@
 					<li class="nav-item px-4 btn btn-success mx-1"><a href="{{route('registers')}}" class="nav-link text-light">Register</a></li>
 					<li class="nav-item px-4 btn btn-success mx-2"><a href="{{route('logins')}}" class="nav-link text-light" >Login</a></li>
 					@endif
+					
 				</ul>
 			</div>
 		</div>
 	</nav>
 <!-- header -->
-<div id="banner">
+<div id="register">
 	<div class="container" id="navtitle">
 		<div class="row justify-content-center text-center">
 			<div class="col-lg-12 col-md-12 col-sm-12">
-				<h1 class="text-white" style="font-size: 80px;">About Us</h1>
+				<h1 class="text-white" style="font-size: 80px;">Register Here</h1>
 			</div>
 		</div>
 	</div>
