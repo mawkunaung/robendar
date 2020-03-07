@@ -11,3 +11,4 @@ class BackendController extends Controller
     	return view('backendtemplate');
     }
 }
+    

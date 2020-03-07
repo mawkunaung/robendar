@@ -24,4 +24,12 @@ class FrontendController extends Controller
     {
         return view('frontend.booking');
     }
+    public function login($value='')
+    {
+        return view('frontend.login');
+    }
+    public function register($value='')
+    {
+        return view('frontend.register');
+    }
 }

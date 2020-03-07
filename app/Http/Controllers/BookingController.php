@@ -36,6 +36,8 @@ class BookingController extends Controller
     public function store(Request $request)
     {
         //
+        // $booking =new Booking;
+        // $booking->user_id=1;
     }
 
     /**
